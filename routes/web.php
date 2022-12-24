@@ -17,4 +17,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/contacts', ShowContacts::class);
 
-/*Route::get('/contacts/{id}/history', ShowHistories::class);*/
