@@ -14,7 +14,7 @@ class ShowContacts extends Component
     public function render()
     {
         return view('livewire.show-contacts', [
-            'contacts' => Contact::all(),
+            'contacts' => Contact::orderBy('first_name', 'ASC')->get(),
             'total' => Contact::all()->count()
     ]);
     }
@@ -60,7 +60,7 @@ class ShowContacts extends Component
 
     public function contactHistory($id){
         $contact = Contact::findOrFail($id);
-        $this->histories = $contact->history;
+        $this->histories = $contact->history()->orderBy('created_at', 'DESC')->get();
         $this->openHistoryModal();
     }
 

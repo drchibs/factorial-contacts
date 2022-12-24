@@ -2,7 +2,7 @@
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-                <h1 class="text-xl font-semibold text-gray-900">Dashboard</h1>
+                <h1 class="text-xl font-semibold text-gray-900">Phonebook</h1>
                 <p class="mt-2 text-sm text-gray-700"><strong>{{ $total }}</strong> contact(s)</p>
 
                 @if (session()->has('message'))
@@ -33,10 +33,10 @@
                         <table class="min-w-full divide-y divide-gray-300">
                             <thead class="bg-gray-50">
                             <tr>
-                                <th scope="col"
+                                {{--<th scope="col"
                                     class="py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 sm:pl-6">
                                     SN
-                                </th>
+                                </th>--}}
                                 <th scope="col"
                                     class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
                                     First Name
@@ -62,9 +62,9 @@
 
                             @foreach($contacts as $contact)
                                 <tr>
-                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                    {{--<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                         {{ $contact->id }}
-                                    </td>
+                                    </td>--}}
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                         {{ $contact->first_name }}
                                     </td>
@@ -78,7 +78,7 @@
                                         {{ $contact->phone_number }}
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button wire:click="contactHistory({{ $contact->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">History</button>
+                                        <button wire:click="contactHistory({{ $contact->id }})" class="bg-slate-400 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded">History</button>
                                         @if($historyOpen)
                                             @include('livewire.show-histories')
                                         @endif
